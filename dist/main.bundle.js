@@ -138,7 +138,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/primaire-collector/primaire-collector.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <h1>\n        Offerte: Primaire collector\n    </h1>\n    <form>\n        <div class=\" form-group \">\n            <label for=\"afstandTussenUitgangen \">Afstand tussen uitgangen</label>\n            <input class=\"form-control \" type=\"number \" [(ngModel)]=\"afstandTussenUitgangen \" name=\"afstandTussenUitgangen \">\n        </div>\n        <h4>Uitgangen</h4>\n        <div class=\"form-group \">\n            <div *ngFor=\"let oi of uitgangen; let j=index \" class=\"list-group-item \">\n\n                <div class='row'>\n                    <div class=\"col-sm-2 \">\n                        <div class='form-group'>\n                            <label for=\"uitgang \">Uitgang {{j + 1}}</label>\n                            <button type=\"button \" class=\"btn btn-default \" (click)=\"deleteUitgang(j) \">\n                                Verwijderen\n                            </button>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6 \">\n                        <div class='form-group'>\n                            <label for=\"diameter \">Diameter</label>\n                            <input class=\"form-control \" type=\"number \" [(ngModel)]=\"oi.diameter \" name=\"diameter-{{j}} \">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4 \">\n                        <div class='form-group'>\n                            <label for=\"heeftSchroefdraad \">Schroefdraad</label>\n                            <input class=\"form-control \" type=\"checkbox \" [(ngModel)]=\"oi.heeftScroefdraad \" name=\"heeftSchroefdraad-{{j}} \">\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"float-sm-right \">\n            <button type=\"button \" class=\"btn btn-primary pull-right \" (click)=\"addUitgang() \">\n            Uitgang toevoegen\n        </button>\n        </div><br><br>\n\n    </form>\n</div>\n<h4>Technische tekening</h4>\n<canvas #myCanvas width=\"1000 \" height=\"400 \">\n</canvas>\n<hr>\n\n<address>\n  <strong>M-M-T bvba</strong><br>\n  Szamotulystraat 5<br>\n  8700 Tielt (Belgium)<br>\n  <abbr title=\" Phone \">Tel:</abbr> +32 (0)51 72 42 88<br>\n  <a href=\"mailto:# \">info@m-m-t.be</a>\n</address>\n<h1>\n    Offerte: Primaire collector\n</h1>\n<ul class=\"list-group \">\n    <li class=\"list-group-item \">Afstand tussen uitgangen: {{afstandTussenUitgangen}}</li>\n    <li class=\"list-group-item \">Aantal uitgangen: {{uitgangen.length}}</li>\n    <li *ngFor=\"let u of uitgangen; let i=index \" class=\"list-group-item \">Uitgang {{i + 1}} met een diameter van {{u.diameter}} en {{u.heeftScroefdraad ? 'met' : 'zonder'}} schroefdraad</li>\n</ul>\n<hr>"
+module.exports = "<div *ngIf=isEdit>\n    <h1>\n        Offerte: Primaire collector\n    </h1>\n    <form>\n        <div class=\" form-group \">\n            <label for=\"afstandTussenUitgangen \">Afstand tussen uitgangen</label>\n            <input class=\"form-control \" type=\"number \" [(ngModel)]=\"afstandTussenUitgangen \" name=\"afstandTussenUitgangen \">\n        </div>\n        <h4>Uitgangen</h4>\n        <div class=\"form-group \">\n            <div *ngFor=\"let oi of uitgangen; let j=index \" class=\"list-group-item \">\n\n                <div class='row'>\n                    <div class=\"col-sm-2 \">\n                        <div class='form-group'>\n                            <label for=\"uitgang \">Uitgang {{j + 1}}</label>\n                            <button type=\"button \" class=\"btn btn-default \" (click)=\"deleteUitgang(j) \">\n                                Verwijderen\n                            </button>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6 \">\n                        <div class='form-group'>\n                            <label for=\"diameter \">Diameter</label>\n                            <input class=\"form-control \" type=\"number \" [(ngModel)]=\"oi.diameter \" name=\"diameter-{{j}} \">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4 \">\n                        <div class='form-group'>\n                            <label for=\"heeftSchroefdraad \">Schroefdraad</label>\n                            <input class=\"form-control \" type=\"checkbox \" [(ngModel)]=\"oi.heeftScroefdraad \" name=\"heeftSchroefdraad-{{j}} \">\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"float-sm-right \">\n            <button type=\"button \" class=\"btn btn-primary pull-right \" (click)=\"addUitgang() \">\n            Uitgang toevoegen\n        </button>\n        </div><br><br>\n\n    </form>\n</div>\n\n<div *ngIf=!isEdit class=\"form-group\">\n    <address>\n  <strong>M-M-T bvba</strong><br>\n  Szamotulystraat 5<br>\n  8700 Tielt (Belgium)<br>\n  <abbr title=\" Phone \">Tel:</abbr> +32 (0)51 72 42 88<br>\n  <a href=\"mailto:# \">info@m-m-t.be</a>\n</address>\n    <h1>\n        Offerte: Primaire collector\n    </h1>\n    <ul class=\"list-group \">\n        <li class=\"list-group-item \">Afstand tussen uitgangen: {{afstandTussenUitgangen}}</li>\n        <li class=\"list-group-item \">Aantal uitgangen: {{uitgangen.length}}</li>\n        <li *ngFor=\"let u of uitgangen; let i=index \" class=\"list-group-item \">Uitgang {{i + 1}} met een diameter van {{u.diameter}} en {{u.heeftScroefdraad ? 'met' : 'zonder'}} schroefdraad</li>\n    </ul>\n</div>\n\n<h4>Technische tekening</h4>\n<div class=\"form-group\" style=\"border-style: solid; border-width: 1px;\">\n    <canvas #myCanvas width=\"1500\" height=\"400 \">\n    </canvas>\n</div>\n\n\n<div class=\"float-sm-right \" *ngIf=isEdit>\n    <button type=\"button \" class=\"btn btn-default pull-right \" (click)=\"resetOfferte() \">\n            Reset\n    </button>\n    <button type=\"button \" class=\"btn btn-success pull-right \" (click)=\"requestOfferte() \">\n            Offerte aanvragen\n    </button>\n    <br><br>\n</div>"
 
 /***/ }),
 
@@ -160,30 +160,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var PrimaireCollectorComponent = (function () {
     function PrimaireCollectorComponent() {
+        this.isEdit = true;
     }
     PrimaireCollectorComponent.prototype.ngOnInit = function () {
+        this.resetOfferte();
+    };
+    PrimaireCollectorComponent.prototype.ngAfterViewInit = function () {
+        this.drawPrimaireCollector();
+    };
+    PrimaireCollectorComponent.prototype.requestOfferte = function () {
+        this.offerteId = Guid.newGuid();
+        this.isEdit = false;
+    };
+    PrimaireCollectorComponent.prototype.resetOfferte = function () {
         this.afstandTussenUitgangen = 20;
         this.uitgangen = [new PrimaireCollectorUitgang(20, false),
             new PrimaireCollectorUitgang(20, true),
             new PrimaireCollectorUitgang(8, false)];
     };
-    PrimaireCollectorComponent.prototype.ngAfterViewInit = function () {
-        this.drawPrimaireCollector();
-    };
-    PrimaireCollectorComponent.prototype.isNieuwOfferte = function () {
-        return true;
-    };
     PrimaireCollectorComponent.prototype.drawPrimaireCollector = function () {
         var ctx = this.canvasRef.nativeElement.getContext('2d');
         //console.log(document.querySelectorAll("#myCanvas")[0].clientWidth);
         ctx.clearRect(0, 0, 1000, 400);
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.lineTo(1000, 0);
-        ctx.lineTo(1000, 400);
-        ctx.lineTo(0, 400);
-        ctx.lineTo(0, 0);
-        ctx.stroke();
         ctx.beginPath();
         ctx.moveTo(100, 60);
         ctx.lineTo(100, 320);
@@ -254,11 +252,22 @@ var PrimaireCollectorUitgang = (function () {
     }
     return PrimaireCollectorUitgang;
 }());
-var _a;
 //sortering van de uitgangen, moet ik me daar zorgen in maken?
 //benaming van de componenten in het nederlands?
 //volledige component in 1 object => is dat ok?
-// 
+//waar stop ik mijn class Guid?
+var Guid = (function () {
+    function Guid() {
+    }
+    Guid.newGuid = function () {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    };
+    return Guid;
+}());
+var _a;
 //# sourceMappingURL=primaire-collector.component.js.map
 
 /***/ }),

@@ -6,19 +6,18 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angula
   styleUrls: ['./primaire-collector.component.css']
 })
 export class PrimaireCollectorComponent implements OnInit, AfterViewInit {
+
   afstandTussenUitgangen:number;
   uitgangen: PrimaireCollectorUitgang[];
+  offerteId:string;
+  isEdit:boolean = true;
 
   @ViewChild('myCanvas') canvasRef: ElementRef;
   
   constructor() { }
 
   ngOnInit() {
-    this.afstandTussenUitgangen = 20;
-
-    this.uitgangen = [new PrimaireCollectorUitgang(20, false)
-                        , new PrimaireCollectorUitgang(20, true)
-                        , new PrimaireCollectorUitgang(8, false) ];
+    this.resetOfferte();
   }
 
   ngAfterViewInit() {
@@ -26,9 +25,18 @@ export class PrimaireCollectorComponent implements OnInit, AfterViewInit {
   }
 
 
-  isNieuwOfferte():Boolean {
-    return true;
+  requestOfferte() {
+    this.offerteId = Guid.newGuid();
+    this.isEdit = false;
   }
+
+  resetOfferte() {
+    this.afstandTussenUitgangen = 20;
+    this.uitgangen = [new PrimaireCollectorUitgang(20, false)
+                        , new PrimaireCollectorUitgang(20, true)
+                        , new PrimaireCollectorUitgang(8, false) ];
+  }
+
   drawPrimaireCollector() {
     let ctx: CanvasRenderingContext2D =
       this.canvasRef.nativeElement.getContext('2d');
@@ -36,14 +44,6 @@ export class PrimaireCollectorComponent implements OnInit, AfterViewInit {
     //console.log(document.querySelectorAll("#myCanvas")[0].clientWidth);
 
     ctx.clearRect(0, 0, 1000, 400);
-
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(1000, 0);
-    ctx.lineTo(1000, 400);
-    ctx.lineTo(0, 400);
-    ctx.lineTo(0, 0);
-    ctx.stroke();
 
     ctx.beginPath();
     ctx.moveTo(100, 60);
@@ -120,4 +120,14 @@ class PrimaireCollectorUitgang {
 //sortering van de uitgangen, moet ik me daar zorgen in maken?
 //benaming van de componenten in het nederlands?
 //volledige component in 1 object => is dat ok?
-//
+//waar stop ik mijn class Guid?
+
+
+class Guid {
+    static newGuid() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+            return v.toString(16);
+        });
+    }
+}

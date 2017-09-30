@@ -1,4 +1,4 @@
-<div>
+<div *ngIf=isEdit>
     <h1>
         Offerte: Primaire collector
     </h1>
@@ -43,24 +43,38 @@
 
     </form>
 </div>
-<h4>Technische tekening</h4>
-<canvas #myCanvas width="1000 " height="400 ">
-</canvas>
-<hr>
 
-<address>
+<div *ngIf=!isEdit class="form-group">
+    <address>
   <strong>M-M-T bvba</strong><br>
   Szamotulystraat 5<br>
   8700 Tielt (Belgium)<br>
   <abbr title=" Phone ">Tel:</abbr> +32 (0)51 72 42 88<br>
   <a href="mailto:# ">info@m-m-t.be</a>
 </address>
-<h1>
-    Offerte: Primaire collector
-</h1>
-<ul class="list-group ">
-    <li class="list-group-item ">Afstand tussen uitgangen: {{afstandTussenUitgangen}}</li>
-    <li class="list-group-item ">Aantal uitgangen: {{uitgangen.length}}</li>
-    <li *ngFor="let u of uitgangen; let i=index " class="list-group-item ">Uitgang {{i + 1}} met een diameter van {{u.diameter}} en {{u.heeftScroefdraad ? 'met' : 'zonder'}} schroefdraad</li>
-</ul>
-<hr>
+    <h1>
+        Offerte: Primaire collector
+    </h1>
+    <ul class="list-group ">
+        <li class="list-group-item ">Afstand tussen uitgangen: {{afstandTussenUitgangen}}</li>
+        <li class="list-group-item ">Aantal uitgangen: {{uitgangen.length}}</li>
+        <li *ngFor="let u of uitgangen; let i=index " class="list-group-item ">Uitgang {{i + 1}} met een diameter van {{u.diameter}} en {{u.heeftScroefdraad ? 'met' : 'zonder'}} schroefdraad</li>
+    </ul>
+</div>
+
+<h4>Technische tekening</h4>
+<div class="form-group" style="border-style: solid; border-width: 1px;">
+    <canvas #myCanvas width="1500" height="400 ">
+    </canvas>
+</div>
+
+
+<div class="float-sm-right " *ngIf=isEdit>
+    <button type="button " class="btn btn-default pull-right " (click)="resetOfferte() ">
+            Reset
+    </button>
+    <button type="button " class="btn btn-success pull-right " (click)="requestOfferte() ">
+            Offerte aanvragen
+    </button>
+    <br><br>
+</div>
