@@ -18,6 +18,16 @@ export class PrimaireCollectorComponent implements OnInit {
                         , new PrimaireCollectorUitgang(20, true)
                         , new PrimaireCollectorUitgang(8, false) ];
   }
+
+  deleteUitgang(j) {
+    this.uitgangen.splice(j,1);
+  }
+
+  addUitgang(j) {
+    this.uitgangen.push(new PrimaireCollectorUitgang(20, false));
+  }
+
+
 }
 
 class PrimaireCollectorUitgang {
