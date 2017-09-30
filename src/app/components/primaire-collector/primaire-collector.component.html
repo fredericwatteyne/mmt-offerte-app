@@ -1,0 +1,21 @@
+<h1>
+    Offerte: Primaire collector
+</h1>
+<form>
+    <div>
+        <label for="afstandTussenUitgangen">Afstand tussen uitgangen: </label>
+        <input type="number" [(ngModel)]="afstandTussenUitgangen" name="afstandTussenUitgangen">
+    </div>
+
+</form>
+
+<h2>
+    Overzicht data
+</h2>
+<ul>
+    <li>Afstand tussen uitgangen: {{afstandTussenUitgangen}}</li>
+    <li>Aantal uitgangen: {{uitgangen.length}}</li>
+    <ul>
+        <li *ngFor="let u of uitgangen; let i = index">Uitgang {{i + 1}} met een diameter van {{u.diameter}} en {{u.heeftScroefdraad ? 'met' : 'zonder'}} schroefdraad</li>
+    </ul>
+</ul>
