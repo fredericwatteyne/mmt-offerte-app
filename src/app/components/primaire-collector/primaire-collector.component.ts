@@ -29,3 +29,8 @@ class PrimaireCollectorUitgang {
     this.heeftScroefdraad = heeftScroefdraad;
   }
 }
+
+//sortering van de uitgangen, moet ik me daar zorgen in maken?
+//benaming van de componenten in het nederlands?
+//volledige component in 1 object => is dat ok?
+//

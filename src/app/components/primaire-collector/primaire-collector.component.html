@@ -6,6 +6,13 @@
         <label for="afstandTussenUitgangen">Afstand tussen uitgangen: </label>
         <input type="number" [(ngModel)]="afstandTussenUitgangen" name="afstandTussenUitgangen">
     </div>
+    <h4>Uitgangen</h4>
+    <div *ngFor="let oi of uitgangen; let j = index">
+        <label for="diameter">Uitgang {{j + 1}} met diameter: </label>
+        <input type="number" [(ngModel)]="oi.diameter" name="diameter-{{j}}">
+        <label for="heeftSchroefdraad">Schroefdraad: </label>
+        <input type="checkbox" [(ngModel)]="oi.heeftScroefdraad" name="heeftSchroefdraad-{{j}}">
+    </div>
 
 </form>
 
