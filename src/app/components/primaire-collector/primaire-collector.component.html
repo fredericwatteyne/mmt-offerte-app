@@ -1,28 +1,63 @@
+<div>
+    <h1>
+        Offerte: Primaire collector
+    </h1>
+    <form>
+        <div class=" form-group ">
+            <label for="afstandTussenUitgangen ">Afstand tussen uitgangen</label>
+            <input class="form-control " type="number " [(ngModel)]="afstandTussenUitgangen " name="afstandTussenUitgangen ">
+        </div>
+        <h4>Uitgangen</h4>
+        <div class="form-group ">
+            <div *ngFor="let oi of uitgangen; let j=index " class="list-group-item ">
+
+                <div class='row'>
+                    <div class="col-sm-2 ">
+                        <div class='form-group'>
+                            <label for=" diameter ">Uitgang {{j + 1}}</label>
+                            <button type="button " class="btn btn-default ">
+                            Verwijderen
+                        </button>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <div class='form-group'>
+                            <label for=" diameter ">Diameter</label>
+                            <input class="form-control " type="number " [(ngModel)]="oi.diameter " name="diameter-{{j}} ">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 ">
+                        <div class='form-group'>
+                            <label for="heeftSchroefdraad ">Schroefdraad</label>
+                            <input class="form-control " type="checkbox" [(ngModel)]="oi.heeftScroefdraad " name="heeftSchroefdraad-{{j}} ">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="float-sm-right ">
+            <button type="button " class="btn btn-primary pull-right ">
+            Uitgang toevoegen
+        </button>
+        </div><br><br>
+
+    </form>
+</div>
+<hr>
+
+<address>
+  <strong>M-M-T bvba</strong><br>
+  Szamotulystraat 5<br>
+  8700 Tielt (Belgium)<br>
+  <abbr title="Phone ">P:</abbr> +32 (0)51 72 42 88<br>
+  <a href="mailto:# ">info@m-m-t.be</a>
+</address>
 <h1>
     Offerte: Primaire collector
 </h1>
-<form>
-    <div>
-        <label for="afstandTussenUitgangen">Afstand tussen uitgangen: </label>
-        <input type="number" [(ngModel)]="afstandTussenUitgangen" name="afstandTussenUitgangen">
-    </div>
-    <h4>Uitgangen</h4>
-    <div *ngFor="let oi of uitgangen; let j = index">
-        <label for="diameter">Uitgang {{j + 1}} met diameter: </label>
-        <input type="number" [(ngModel)]="oi.diameter" name="diameter-{{j}}">
-        <label for="heeftSchroefdraad">Schroefdraad: </label>
-        <input type="checkbox" [(ngModel)]="oi.heeftScroefdraad" name="heeftSchroefdraad-{{j}}">
-    </div>
-
-</form>
-
-<h2>
-    Overzicht data
-</h2>
-<ul>
-    <li>Afstand tussen uitgangen: {{afstandTussenUitgangen}}</li>
-    <li>Aantal uitgangen: {{uitgangen.length}}</li>
-    <ul>
-        <li *ngFor="let u of uitgangen; let i = index">Uitgang {{i + 1}} met een diameter van {{u.diameter}} en {{u.heeftScroefdraad ? 'met' : 'zonder'}} schroefdraad</li>
-    </ul>
+<ul class="list-group ">
+    <li class="list-group-item ">Afstand tussen uitgangen: {{afstandTussenUitgangen}}</li>
+    <li class="list-group-item ">Aantal uitgangen: {{uitgangen.length}}</li>
+    <li *ngFor="let u of uitgangen; let i=index " class="list-group-item ">Uitgang {{i + 1}} met een diameter van {{u.diameter}} en {{u.heeftScroefdraad ? 'met' : 'zonder'}} schroefdraad</li>
 </ul>
+<hr>
