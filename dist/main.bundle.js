@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\">\n    <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n            <a class=\"navbar-brand\" routerLink=\"/\">M.M.T. Offertes</a>\n        </div>\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n            <ul class=\"nav navbar-nav\">\n                <li><a routerLink=\"/\">Primaire collector</a></li>\n                <li><a routerLink=\"/contact\">Contact</a></li>\n            </ul>\n        </div>\n    </div>\n</nav>\n<div class=\"container\">\n    <router-outlet></router-outlet>\n</div>"
+module.exports = "<nav class=\"navbar navbar-default\">\n    <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n            <a class=\"navbar-brand\" routerLink=\"/\">M.M.T. Offertes</a>\n        </div>\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n            <ul class=\"nav navbar-nav\">\n                <li><a routerLink=\"/\">Primaire collector</a></li>\n                <li><a routerLink=\"/offertes\">Offertes</a></li>\n                <li><a routerLink=\"/contact\">Contact</a></li>\n            </ul>\n        </div>\n    </div>\n</nav>\n<div class=\"container\">\n    <router-outlet></router-outlet>\n</div>"
 
 /***/ }),
 
@@ -81,9 +81,12 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_primaire_collector_primaire_collector_component__ = __webpack_require__("../../../../../src/app/components/primaire-collector/primaire-collector.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_contact_contact_component__ = __webpack_require__("../../../../../src/app/components/contact/contact.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_primaire_collector_primaire_collector_component__ = __webpack_require__("../../../../../src/app/components/primaire-collector/primaire-collector.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_contact_contact_component__ = __webpack_require__("../../../../../src/app/components/contact/contact.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_offertes_offertes_component__ = __webpack_require__("../../../../../src/app/components/offertes/offertes.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_data_service__ = __webpack_require__("../../../../../src/app/services/data.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -97,9 +100,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
 var appRoutes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_5__components_primaire_collector_primaire_collector_component__["a" /* PrimaireCollectorComponent */] },
-    { path: 'contact', component: __WEBPACK_IMPORTED_MODULE_6__components_contact_contact_component__["a" /* ContactComponent */] }
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_6__components_primaire_collector_primaire_collector_component__["a" /* PrimaireCollectorComponent */] },
+    { path: 'offertes', component: __WEBPACK_IMPORTED_MODULE_8__components_offertes_offertes_component__["a" /* OffertesComponent */] },
+    { path: 'contact', component: __WEBPACK_IMPORTED_MODULE_7__components_contact_contact_component__["a" /* ContactComponent */] }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -109,17 +116,21 @@ var AppModule = (function () {
 AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_5__components_primaire_collector_primaire_collector_component__["a" /* PrimaireCollectorComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__components_contact_contact_component__["a" /* ContactComponent */]
+            __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__components_primaire_collector_primaire_collector_component__["a" /* PrimaireCollectorComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__components_contact_contact_component__["a" /* ContactComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__components_offertes_offertes_component__["a" /* OffertesComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* RouterModule */].forRoot(appRoutes)
         ],
-        providers: [],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_9__services_data_service__["a" /* DataService */]
+        ],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -185,6 +196,75 @@ ContactComponent = __decorate([
 ], ContactComponent);
 
 //# sourceMappingURL=contact.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/offertes/offertes.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/offertes/offertes.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n    offertes works!\n</p>\n\n<h1>Offertes</h1>\n<div class=\"container\">\n    <div class=\"row\" *ngFor=\"let o of offertes\">\n        <div class=\"col\">\n            {{o.offerteid}}\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/offertes/offertes.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OffertesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_data_service__ = __webpack_require__("../../../../../src/app/services/data.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var OffertesComponent = (function () {
+    function OffertesComponent(dataService) {
+        this.dataService = dataService;
+    }
+    OffertesComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.dataService.getOffertes().subscribe(function (offertes) {
+            _this.offertes = offertes.data;
+        });
+    };
+    return OffertesComponent;
+}());
+OffertesComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-offertes',
+        template: __webpack_require__("../../../../../src/app/components/offertes/offertes.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/offertes/offertes.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_data_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_data_service__["a" /* DataService */]) === "function" && _a || Object])
+], OffertesComponent);
+
+var _a;
+//# sourceMappingURL=offertes.component.js.map
 
 /***/ }),
 
@@ -340,6 +420,48 @@ var Guid = (function () {
 }());
 var _a;
 //# sourceMappingURL=primaire-collector.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/data.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DataService = (function () {
+    function DataService(http) {
+        this.http = http;
+        console.log('dataservice is connected');
+    }
+    DataService.prototype.getOffertes = function () {
+        return this.http.get('/api/primaireCollectorOffertes')
+            .map(function (res) { return res.json(); });
+    };
+    return DataService;
+}());
+DataService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
+], DataService);
+
+var _a;
+//# sourceMappingURL=data.service.js.map
 
 /***/ }),
 
