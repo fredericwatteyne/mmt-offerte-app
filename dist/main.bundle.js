@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    <app-primaire-collector></app-primaire-collector>\n</div>"
+module.exports = "<nav class=\"navbar navbar-default\">\n    <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n            <a class=\"navbar-brand\" routerLink=\"/\">M.M.T. Offertes</a>\n        </div>\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n            <ul class=\"nav navbar-nav\">\n                <li><a routerLink=\"/\">Primaire collector</a></li>\n                <li><a routerLink=\"/contact\">Contact</a></li>\n            </ul>\n        </div>\n    </div>\n</nav>\n<div class=\"container\">\n    <router-outlet></router-outlet>\n</div>"
 
 /***/ }),
 
@@ -61,7 +61,7 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
@@ -80,8 +80,10 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_primaire_collector_primaire_collector_component__ = __webpack_require__("../../../../../src/app/components/primaire-collector/primaire-collector.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_primaire_collector_primaire_collector_component__ = __webpack_require__("../../../../../src/app/components/primaire-collector/primaire-collector.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_contact_contact_component__ = __webpack_require__("../../../../../src/app/components/contact/contact.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -93,27 +95,96 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+var appRoutes = [
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_5__components_primaire_collector_primaire_collector_component__["a" /* PrimaireCollectorComponent */] },
+    { path: 'contact', component: __WEBPACK_IMPORTED_MODULE_6__components_contact_contact_component__["a" /* ContactComponent */] }
+];
 var AppModule = (function () {
     function AppModule() {
     }
     return AppModule;
 }());
 AppModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["L" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_4__components_primaire_collector_primaire_collector_component__["a" /* PrimaireCollectorComponent */]
+            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__components_primaire_collector_primaire_collector_component__["a" /* PrimaireCollectorComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__components_contact_contact_component__["a" /* ContactComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* RouterModule */].forRoot(appRoutes)
         ],
         providers: [],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/contact/contact.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/contact/contact.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  contact works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/contact/contact.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ContactComponent = (function () {
+    function ContactComponent() {
+    }
+    ContactComponent.prototype.ngOnInit = function () {
+    };
+    return ContactComponent;
+}());
+ContactComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-contact',
+        template: __webpack_require__("../../../../../src/app/components/contact/contact.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/contact/contact.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], ContactComponent);
+
+//# sourceMappingURL=contact.component.js.map
 
 /***/ }),
 
@@ -233,11 +304,11 @@ var PrimaireCollectorComponent = (function () {
     return PrimaireCollectorComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])('myCanvas'),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */]) === "function" && _a || Object)
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewChild */])('myCanvas'),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ElementRef */]) === "function" && _a || Object)
 ], PrimaireCollectorComponent.prototype, "canvasRef", void 0);
 PrimaireCollectorComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-primaire-collector',
         template: __webpack_require__("../../../../../src/app/components/primaire-collector/primaire-collector.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/primaire-collector/primaire-collector.component.css")]
@@ -306,7 +377,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_23" /* enableProdMode */])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
     .catch(function (err) { return console.log(err); });
