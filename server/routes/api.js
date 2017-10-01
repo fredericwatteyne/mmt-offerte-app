@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET api listing. */
-router.get('/', (req, res) => {
-    res.send('api works');
-});
+var db = require('../queries');
+
+router.get('/primaireCollectorOffertes', db.getAllPrimaireCollectorOffertes);
 
 module.exports = router;
