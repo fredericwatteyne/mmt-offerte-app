@@ -5,7 +5,7 @@
     <form>
         <div class=" form-group ">
             <label for="afstandTussenUitgangen ">Afstand tussen uitgangen</label>
-            <input class="form-control " type="number " [(ngModel)]="afstandTussenUitgangen " name="afstandTussenUitgangen ">
+            <input class="form-control" type="number" [(ngModel)]="afstandTussenUitgangen" name="afstandTussenUitgangen ">
         </div>
         <h4>Uitgangen</h4>
         <div class="form-group ">
@@ -15,7 +15,7 @@
                     <div class="col-sm-2 ">
                         <div class='form-group'>
                             <label for="uitgang">Uitgang {{j + 1}}</label>
-                            <button type="button" class="btn btn-default " (click)="deleteUitgang(j) ">
+                            <button type="button" class="btn btn-default" (click)="deleteUitgang(j) ">
                                 Verwijderen
                             </button>
                         </div>
@@ -23,25 +23,24 @@
                     <div class="col-sm-6 ">
                         <div class='form-group'>
                             <label for="diameter">Diameter</label>
-                            <input class="form-control " type="number" [(ngModel)]="oi.diameter " name="diameter-{{j}} ">
+                            <input class="form-control" type="number" [(ngModel)]="oi.diameter" name="diameter-{{j}} ">
                         </div>
                     </div>
                     <div class="col-sm-4 ">
                         <div class='form-group'>
-                            <label for="heeftSchroefdraad ">Schroefdraad</label>
-                            <input class="form-control " type="checkbox" [(ngModel)]="oi.heeftScroefdraad " name="heeftSchroefdraad-{{j}} ">
+                            <label for="heeftSchroefdraad">Schroefdraad</label>
+                            <input class="form-control" type="checkbox" [(ngModel)]="oi.heeftScroefdraad" name="heeftSchroefdraad-{{j}}">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="float-sm-right ">
-            <button type="button " class="btn btn-primary pull-right " (click)="addUitgang() ">
+    </form>
+    <div class="float-sm-right ">
+        <button type="button" class="btn btn-primary pull-right " (click)="addUitgang() ">
             Uitgang toevoegen
         </button>
-        </div><br><br>
-
-    </form>
+    </div><br><br>
 </div>
 
 <div *ngIf=!isEdit class="form-group">
