@@ -15,10 +15,12 @@ export class ContactComponent implements OnInit {
     this.contact = new Contact();
   }
 
-  submitContact() {
-    var r = JSON.stringify(this.contact);
-    console.log(r);
-    this.dataService.postContact(r);
+  submitContact(isValid: boolean) {
+    if(isValid){
+      var r = JSON.stringify(this.contact);
+      console.log(r);
+      this.dataService.postContact(r);
+    }
   }
 
 }
@@ -29,4 +31,9 @@ class Contact {
   email:string;
   tel:string;
   bericht:string;
+
+  constructor(){
+    this.bedrijf = '';
+    this.tel = '';
+  }
 }
