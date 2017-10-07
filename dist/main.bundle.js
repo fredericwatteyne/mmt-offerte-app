@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\">\n    <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n            <a class=\"navbar-brand\" routerLink=\"/\">M.M.T. Offertes</a>\n        </div>\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n            <ul class=\"nav navbar-nav\">\n                <li><a routerLink=\"/\">Primaire collector</a></li>\n                <li><a routerLink=\"/offertes\">Offertes</a></li>\n                <li><a routerLink=\"/contact\">Contact</a></li>\n            </ul>\n        </div>\n    </div>\n</nav>\n<div class=\"container\">\n    <router-outlet></router-outlet>\n</div>"
+module.exports = "<nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n            <a class=\"navbar-brand\" routerLink=\"/\">M.M.T. Offertes</a>\n        </div>\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n            <ul class=\"nav navbar-nav\">\n                <li><a routerLink=\"/\">Primaire collector</a></li>\n                <li><a routerLink=\"/offertes\">Offertes</a></li>\n                <li><a routerLink=\"/contact\">Contact</a></li>\n            </ul>\n        </div>\n    </div>\n</nav>\n<div class=\"container\">\n    <router-outlet></router-outlet>\n</div>"
 
 /***/ }),
 
@@ -220,7 +220,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/offertes/offertes.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n    offertes works!\n</p>\n\n<h1>Offertes</h1>\n<div class=\"container\">\n    <div class=\"row\" *ngFor=\"let o of offertes\">\n        <div class=\"col\">\n            {{o.offerteid}}\n        </div>\n    </div>\n</div>"
+module.exports = "<h1>Offertes</h1>\n<table class=\"table table-striped\">\n    <thead>\n        <tr>\n            <th>Id</th>\n            <th>afstandtussenuitgangen</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let o of offertes\">\n            <td>{{o.offerteid}}</td>\n            <td>{{o.afstandtussenuitgangen}}</td>\n        </tr>\n    </tbody>\n</table>"
 
 /***/ }),
 

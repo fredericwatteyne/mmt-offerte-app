@@ -1,0 +1,15 @@
+<h1>Offertes</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>afstandtussenuitgangen</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let o of offertes">
+            <td>{{o.offerteid}}</td>
+            <td>{{o.afstandtussenuitgangen}}</td>
+        </tr>
+    </tbody>
+</table>
