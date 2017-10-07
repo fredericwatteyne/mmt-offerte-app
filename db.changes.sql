@@ -11,3 +11,16 @@ INSERT INTO primaireCollectorOffertes (offerteId, afstandTussenUitgangen)
 
 INSERT INTO primaireCollectorOffertes (offerteId, afstandTussenUitgangen)
   VALUES ('18f27d68-9ec3-46af-a26e-ee41879c6d0d', 8);
+
+
+DROP TABLE contactaanvraag;
+
+CREATE TABLE contactaanvraag (
+  ID SERIAL PRIMARY KEY,
+  contactId VARCHAR,
+  naam VARCHAR,
+  bedrijf VARCHAR,
+  email VARCHAR,
+  tel VARCHAR,
+  bericht VARCHAR
+);

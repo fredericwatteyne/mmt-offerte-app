@@ -41,8 +41,6 @@ export class PrimaireCollectorComponent implements OnInit, AfterViewInit {
     let ctx: CanvasRenderingContext2D =
       this.canvasRef.nativeElement.getContext('2d');
 
-    //console.log(document.querySelectorAll("#myCanvas")[0].clientWidth);
-
     ctx.clearRect(0, 0, 1000, 400);
 
     ctx.beginPath();

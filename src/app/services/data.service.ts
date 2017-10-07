@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -9,8 +9,19 @@ export class DataService {
     console.log('dataservice is connected');
   }
 
+  headers = new Headers({
+    'Content-Type': 'application/json'
+  });
+
   getOffertes() {
     return this.http.get('/api/primaireCollectorOffertes')
       .map(res => res.json());
+  }
+
+  postContact(contact:string) {
+    this.http.post('/api/contact', contact, {headers: this.headers})
+    .subscribe(data => {
+      return data.json();
+    });
   }
 }

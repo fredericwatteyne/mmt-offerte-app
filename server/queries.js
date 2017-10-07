@@ -14,7 +14,9 @@ var db = pgp(connectionString);
 
 module.exports = {
     getAllPrimaireCollectorOffertes: getAllPrimaireCollectorOffertes,
-    getSinglePrimaireCollectorOffertes: getSinglePrimaireCollectorOffertes
+    getSinglePrimaireCollectorOffertes: getSinglePrimaireCollectorOffertes,
+    getAllContactAanvragen: getAllContactAanvragen,
+    createContactAanvraag: createContactAanvraag
 };
 
 function getAllPrimaireCollectorOffertes(req, res, next) {
@@ -46,4 +48,46 @@ function getSinglePrimaireCollectorOffertes(req, res, next) {
         .catch(function(err) {
             return next(err);
         });
+}
+
+function createContactAanvraag(req, res, next) {
+    req.body.contactId = Guid.newGuid();
+    db.none('insert into contactaanvraag(contactId, naam, bedrijf, email, tel, bericht)' +
+            'values(${contactId}, ${naam}, ${bedrijf}, ${email}, ${tel}, ${bericht})',
+            req.body)
+        .then(function() {
+            res.status(200)
+                .json({
+                    status: 'success',
+                    message: 'Inserted one contactAanvraag'
+                });
+        })
+        .catch(function(err) {
+            return next(err);
+        });
+}
+
+function getAllContactAanvragen(req, res, next) {
+    db.any('select contactId, naam, bedrijf, email, tel, bericht from contactaanvraag')
+        .then(function(data) {
+            res.status(200)
+                .json({
+                    status: 'success',
+                    data: data,
+                    message: 'Retrieved ALL contactAanvragen'
+                });
+        })
+        .catch(function(err) {
+            return next(err);
+        });
+}
+
+class Guid {
+    static newGuid() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random() * 16 | 0,
+                v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
 }

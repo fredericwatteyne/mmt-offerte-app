@@ -5,5 +5,7 @@ var db = require('../queries');
 
 router.get('/primaireCollectorOffertes', db.getAllPrimaireCollectorOffertes);
 router.get('/primaireCollectorOffertes/:id', db.getSinglePrimaireCollectorOffertes);
+router.get('/contacten', db.getAllContactAanvragen);
+router.post('/contact', db.createContactAanvraag);
 
 module.exports = router;
