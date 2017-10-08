@@ -13,9 +13,34 @@
     </div>
 </nav>
 <div class="container">
-    <router-outlet></router-outlet>
-    <hr>
-    <footer class="footer">
-        MMT bvba - Szamotulystraat 5 - 8700 Tielt - Belgium - T +32 (0)51 72 42 88 - F +32 (0)51 72 56 03 <br/> info@m-m-t.be
-    </footer>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-9">
+                <router-outlet></router-outlet>
+            </div>
+            <div class="col-sm-3">
+                <h1>Contact</h1>
+                <p>Je kan ons contacteren via email, telefoon of per brief naar ons kantoor in Tielt.</p>
+
+                <p>
+                    <a href="#">
+                        <span class="glyphicon glyphicon-envelope"></span>
+                    </a>info@m-m-t.be
+                </p>
+                <p>
+                    <span class="glyphicon glyphicon-envelope"></span> MMT bvba <br>Szamotulystraat 5 <br>8700 Tielt - Belgium<br/>
+                </p>
+                <p>
+                    <span class="glyphicon glyphicon-phone"></span>T +32 (0)51 72 42 88<br/>
+                </p>
+                <a routerLink="/contact">
+                    <button type="button" class="btn btn-primary btn-block">
+                        Contact
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
+
+<hr>
