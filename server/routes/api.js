@@ -3,8 +3,8 @@ const router = express.Router();
 
 var db = require('../queries');
 
-router.get('/primaireCollectorOffertes', db.getAllPrimaireCollectorOffertes);
-router.get('/primaireCollectorOffertes/:id', db.getSinglePrimaireCollectorOffertes);
+router.get('/secundaireaireCollectorOffertes', db.getAllPrimaireCollectorOffertes);
+router.get('/secundaireaireCollectorOffertes/:id', db.getSinglePrimaireCollectorOffertes);
 router.get('/contacten', db.getAllContactAanvragen);
 router.post('/contact', db.createContactAanvraag);
 

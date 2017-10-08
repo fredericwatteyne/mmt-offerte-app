@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { RealisatiesComponent } from './components/realisaties/realisaties.component';
-import { OffertePrimaireCollectorComponent } from './components/offerte-primaire-collector/offerte-primaire-collector.component';
+import { OfferteSecundaireCollectorComponent } from './components/offerte-secundaire-collector/offerte-secundaire-collector.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { OffertesComponent } from './components/offertes/offertes.component';
 
@@ -14,7 +14,7 @@ import { DataService } from './services/data.service';
 
 const appRoutes: Routes = [
   { path:'', component:RealisatiesComponent},
-  { path:'offerte-primaire-collector', component:OffertePrimaireCollectorComponent},
+  { path:'offerte-secundaire-collector', component:OfferteSecundaireCollectorComponent},
   { path:'offertes', component:OffertesComponent},
   { path:'contact', component:ContactComponent}
 ]
@@ -22,7 +22,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    OffertePrimaireCollectorComponent,
+    OfferteSecundaireCollectorComponent,
     ContactComponent,
     OffertesComponent,
     RealisatiesComponent
