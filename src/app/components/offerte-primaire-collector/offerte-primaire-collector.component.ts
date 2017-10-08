@@ -1,11 +1,11 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'app-primaire-collector',
-  templateUrl: './primaire-collector.component.html',
-  styleUrls: ['./primaire-collector.component.css']
+  selector: 'app-offerte-primaire-collector',
+  templateUrl: './offerte-primaire-collector.component.html',
+  styleUrls: ['./offerte-primaire-collector.component.css']
 })
-export class PrimaireCollectorComponent implements OnInit, AfterViewInit {
+export class OffertePrimaireCollectorComponent implements OnInit, AfterViewInit {
 
   afstandTussenUitgangen:number;
   uitgangen: PrimaireCollectorUitgang[];
