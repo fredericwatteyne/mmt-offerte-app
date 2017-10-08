@@ -14,7 +14,7 @@ export class DataService {
   });
 
   getOffertes() {
-    return this.http.get('/api/secundaireaireCollectorOffertes')
+    return this.http.get('/api/secundaireCollectorOffertes')
       .map(res => res.json());
   }
 

@@ -20,13 +20,13 @@ module.exports = {
 };
 
 function getAllPrimaireCollectorOffertes(req, res, next) {
-    db.any('select offerteId, afstandTussenUitgangen from secundaireaireCollectorOffertes')
+    db.any('select offerteId, afstandTussenUitgangen from secundaireCollectorOffertes')
         .then(function(data) {
             res.status(200)
                 .json({
                     status: 'success',
                     data: data,
-                    message: 'Retrieved ALL secundaireaireCollectorOffertes'
+                    message: 'Retrieved ALL secundaireCollectorOffertes'
                 });
         })
         .catch(function(err) {
@@ -36,13 +36,13 @@ function getAllPrimaireCollectorOffertes(req, res, next) {
 
 function getSinglePrimaireCollectorOffertes(req, res, next) {
     var offerteId = req.params.id;
-    db.one('select offerteId,afstandTussenUitgangen from secundaireaireCollectorOffertes where offerteId = $1', offerteId)
+    db.one('select offerteId,afstandTussenUitgangen from secundaireCollectorOffertes where offerteId = $1', offerteId)
         .then(function(data) {
             res.status(200)
                 .json({
                     status: 'success',
                     data: data,
-                    message: 'Retrieved ONE secundaireaireCollectorOffertes'
+                    message: 'Retrieved ONE secundaireCollectorOffertes'
                 });
         })
         .catch(function(err) {

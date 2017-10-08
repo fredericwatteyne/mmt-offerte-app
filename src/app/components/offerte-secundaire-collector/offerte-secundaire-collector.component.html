@@ -3,10 +3,6 @@
         Offerte: Secundaire collector
     </h1>
     <form>
-        <div class=" form-group ">
-            <label for="afstandTussenUitgangen ">Afstand tussen uitgangen</label>
-            <input class="form-control" type="number" [(ngModel)]="afstandTussenUitgangen" name="afstandTussenUitgangen ">
-        </div>
         <h4>Uitgangen</h4>
         <div class="form-group ">
             <div *ngFor="let oi of uitgangen; let j=index " class="list-group-item ">
@@ -34,6 +30,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class=" form-group ">
+            <label for="afstandTussenUitgangen ">Afstand tussen uitgangen</label>
+            <input class="form-control" type="number" [(ngModel)]="afstandTussenUitgangen" name="afstandTussenUitgangen ">
         </div>
     </form>
     <div class="float-sm-right ">
