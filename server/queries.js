@@ -20,7 +20,7 @@ module.exports = {
 };
 
 function getAllPrimaireCollectorOffertes(req, res, next) {
-    db.any('select offerteId, afstandTussenUitgangen from secundaireCollectorOffertes')
+    db.any('select offerteId, afstandTussenCircuits from secundaireCollectorOffertes')
         .then(function(data) {
             res.status(200)
                 .json({
@@ -36,7 +36,7 @@ function getAllPrimaireCollectorOffertes(req, res, next) {
 
 function getSinglePrimaireCollectorOffertes(req, res, next) {
     var offerteId = req.params.id;
-    db.one('select offerteId,afstandTussenUitgangen from secundaireCollectorOffertes where offerteId = $1', offerteId)
+    db.one('select offerteId,afstandTussenCircuits from secundaireCollectorOffertes where offerteId = $1', offerteId)
         .then(function(data) {
             res.status(200)
                 .json({

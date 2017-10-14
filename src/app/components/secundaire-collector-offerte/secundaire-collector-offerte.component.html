@@ -1,0 +1,100 @@
+<div *ngIf=isEdit>
+    <h1>
+        Offerte: Secundaire collector
+    </h1>
+    <form>
+        <h4>Diameter</h4>
+        <div class="form-group">
+            <label for="debiet">Debiet (m&#179;/h)</label>
+            <input class="form-control" type="number" [(ngModel)]="model.debiet" name="debiet">
+        </div>
+        <div class="form-group">
+            <label for="vermogen">Vermogen (kW)</label>
+            <input class="form-control" type="number" [(ngModel)]="model.vermogen" name="vermogen">
+        </div>
+        <div class="form-group">
+            <label for="temperatuurVerschil">&#9651;T (&ordm;C)</label>
+            <input class="form-control" type="number" [(ngModel)]="model.temperatuurVerschil" name="temperatuurVerschil">
+        </div>
+        <div class="form-group">
+            <label for="watersnelheid">Watersnelheid (m/s)</label>
+            <input class="form-control" type="number" [(ngModel)]="model.watersnelheid" name="watersnelheid">
+        </div>
+        <div class="form-group">
+            <label for="diameter">Diameter (mm)</label>
+            <input class="form-control" type="number" [(ngModel)]="model.diameter" name="diameter">
+        </div>
+        <h4>Circuits</h4>
+        <div class="form-group ">
+            <div *ngFor="let oi of model.circuits; let j=index " class="list-group-item ">
+
+                <div class='row'>
+                    <div class="col-sm-2 ">
+                        <div class='form-group'>
+                            <label for="circuit">Circuit {{j + 1}}</label>
+                            <button type="button" class="btn btn-default" (click)="deleteCircuit(j) ">
+                                Verwijderen
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <div class='form-group'>
+                            <label for="diameter">Diameter (mm)</label>
+                            <input class="form-control" type="number" [(ngModel)]="oi.diameter" name="diameter-{{j}} ">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 ">
+                        <div class='form-group'>
+                            <label for="heeftSchroefdraad">Schroefdraad</label>
+                            <input class="form-control" type="checkbox" [(ngModel)]="oi.heeftScroefdraad" name="heeftSchroefdraad-{{j}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="float-sm-right ">
+            <button type="button" class="btn btn-primary pull-right " (click)="addCircuit()">
+            Circuit toevoegen
+        </button>
+        </div><br><br>
+        <div class=" form-group ">
+            <label for="afstandTussenCircuits ">Afstand tussen circuits (mm)</label>
+            <input class="form-control" type="number" [(ngModel)]="model.afstandTussenCircuits" name="afstandTussenCircuits ">
+        </div>
+    </form>
+</div>
+
+<div *ngIf=!isEdit class="form-group">
+    <address>
+  <strong>M-M-T bvba</strong><br>
+  Szamotulystraat 5<br>
+  8700 Tielt (Belgium)<br>
+  <abbr title=" Phone ">Tel:</abbr> +32 (0)51 72 42 88<br>
+  <a href="mailto:# ">info@m-m-t.be</a>
+</address>
+    <h1>
+        Offerte: Secundaire collector
+    </h1>
+    <ul class="list-group ">
+        <li class="list-group-item ">Afstand tussen circuits: {{afstandTussenCircuits}}</li>
+        <li class="list-group-item ">Aantal circuits: {{circuits.length}}</li>
+        <li *ngFor="let u of circuits; let i=index " class="list-group-item ">Circuit {{i + 1}} met een diameter van {{u.diameter}} en {{u.heeftScroefdraad ? 'met' : 'zonder'}} schroefdraad</li>
+    </ul>
+</div>
+
+<h4>Technische tekening</h4>
+<div class="form-group" style="border-style: solid; border-width: 1px;">
+    <canvas #myCanvas width="1500" height="400 ">
+    </canvas>
+</div>
+
+
+<div class="float-sm-right " *ngIf=isEdit>
+    <button type="button " class="btn btn-success pull-right " (click)="requestOfferte() ">
+            Offerte aanvragen
+    </button>
+    <button type="button " class="btn btn-default pull-right " (click)="resetOfferte() ">
+            Reset
+    </button>
+    <br><br>
+</div>

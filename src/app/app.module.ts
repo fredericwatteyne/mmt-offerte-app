@@ -6,15 +6,15 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { RealisatiesComponent } from './components/realisaties/realisaties.component';
-import { OfferteSecundaireCollectorComponent } from './components/offerte-secundaire-collector/offerte-secundaire-collector.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { OffertesComponent } from './components/offertes/offertes.component';
 
 import { DataService } from './services/data.service';
+import { SecundaireCollectorOfferteComponent } from './components/secundaire-collector-offerte/secundaire-collector-offerte.component';
 
 const appRoutes: Routes = [
   { path:'', component:RealisatiesComponent},
-  { path:'offerte-secundaire-collector', component:OfferteSecundaireCollectorComponent},
+  { path:'secundaire-collector-offerte', component:SecundaireCollectorOfferteComponent},
   { path:'offertes', component:OffertesComponent},
   { path:'contact', component:ContactComponent}
 ]
@@ -22,10 +22,10 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    OfferteSecundaireCollectorComponent,
     ContactComponent,
     OffertesComponent,
-    RealisatiesComponent
+    RealisatiesComponent,
+    SecundaireCollectorOfferteComponent
   ],
   imports: [
     BrowserModule,

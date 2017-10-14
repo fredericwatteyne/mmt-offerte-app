@@ -1,15 +1,13 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'app-offerte-secundaire-collector',
-  templateUrl: './offerte-secundaire-collector.component.html',
-  styleUrls: ['./offerte-secundaire-collector.component.css']
+  selector: 'app-secundaire-collector-offerte',
+  templateUrl: './secundaire-collector-offerte.component.html',
+  styleUrls: ['./secundaire-collector-offerte.component.css']
 })
-export class OfferteSecundaireCollectorComponent implements OnInit, AfterViewInit {
+export class SecundaireCollectorOfferteComponent implements OnInit, AfterViewInit {
 
-  afstandTussenUitgangen:number;
-  uitgangen: PrimaireCollectorUitgang[];
-  offerteId:string;
+  model: SecundaireCollector;
   isEdit:boolean = true;
 
   @ViewChild('myCanvas') canvasRef: ElementRef;
@@ -17,24 +15,20 @@ export class OfferteSecundaireCollectorComponent implements OnInit, AfterViewIni
   constructor() { }
 
   ngOnInit() {
-    this.resetOfferte();
+    this.model = new SecundaireCollector();
   }
 
   ngAfterViewInit() {
     this.drawPrimaireCollector();
   }
-
-
+  
   requestOfferte() {
-    this.offerteId = Guid.newGuid();
+    this.model.offerteId = Guid.newGuid();
     this.isEdit = false;
   }
 
   resetOfferte() {
-    this.afstandTussenUitgangen = 20;
-    this.uitgangen = [new PrimaireCollectorUitgang(20, false)
-                        , new PrimaireCollectorUitgang(20, true)
-                        , new PrimaireCollectorUitgang(8, false) ];
+    this.model.resetOfferte();
   }
 
   drawPrimaireCollector() {
@@ -49,15 +43,15 @@ export class OfferteSecundaireCollectorComponent implements OnInit, AfterViewIni
     ctx.stroke();
 
     ctx.moveTo(100, 100);
-    ctx.lineTo(150 * this.uitgangen.length + 40, 100);
+    ctx.lineTo(150 * this.model.circuits.length + 40, 100);
     ctx.stroke();
 
     ctx.moveTo(100, 200);
-    ctx.lineTo(150 * this.uitgangen.length + 80, 200);
+    ctx.lineTo(150 * this.model.circuits.length + 80, 200);
     ctx.stroke();
 
     var i = 0;
-    for (let u of this.uitgangen) {
+    for (let u of this.model.circuits) {
 
       ctx.moveTo(150 + i * 150, 100);
       ctx.lineTo(150 + i * 150, 240);
@@ -90,22 +84,59 @@ export class OfferteSecundaireCollectorComponent implements OnInit, AfterViewIni
     }
   }
 
-  deleteUitgang(j) {
-    this.uitgangen.splice(j,1);
+  deleteCircuit(j) {
+    this.model.deleteCircuit(j);
     this.drawPrimaireCollector();
   }
 
-  addUitgang(j) {
-    if (this.uitgangen.length < 6) {
-      this.uitgangen.push(new PrimaireCollectorUitgang(20, false));
-      this.drawPrimaireCollector();
-    }
+  addCircuit(j) {
+    this.model.addCircuit(j);
+    this.drawPrimaireCollector();
   }
-
-
 }
 
-class PrimaireCollectorUitgang {
+class SecundaireCollector {
+  offerteId:string;
+
+  debiet:number;
+  vermogen:number;
+  temperatuurVerschil:number;
+  watersnelheid:number;
+  diameter:number;
+
+  circuits: SecundaireCollectorCircuit[];
+
+  afstandTussenCircuits:number;
+  
+  constructor() {
+    this.resetOfferte();
+  }
+  
+  resetOfferte() {
+    this.debiet = 17.2;
+    this.temperatuurVerschil = 20;
+    this.vermogen = 400;
+    this.watersnelheid = 0.35;
+    this.diameter = 125;
+
+    this.afstandTussenCircuits = 400;
+    this.circuits = [new SecundaireCollectorCircuit(100, false)
+                        , new SecundaireCollectorCircuit(100, true)
+                        , new SecundaireCollectorCircuit(100, false) ];
+  }
+
+  deleteCircuit(j) {
+    this.circuits.splice(j,1);
+  }
+
+  addCircuit(j) {
+    if (this.circuits.length < 6) {
+      this.circuits.push(new SecundaireCollectorCircuit(100, false));
+    }
+  }
+}
+
+class SecundaireCollectorCircuit {
   diameter:number;
   heeftScroefdraad:Boolean;
 
@@ -115,7 +146,7 @@ class PrimaireCollectorUitgang {
   }
 }
 
-//sortering van de uitgangen, moet ik me daar zorgen in maken?
+//sortering van de circuits, moet ik me daar zorgen in maken?
 //benaming van de componenten in het nederlands?
 //volledige component in 1 object => is dat ok?
 //waar stop ik mijn class Guid?
