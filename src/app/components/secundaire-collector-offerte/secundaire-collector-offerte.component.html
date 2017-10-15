@@ -6,23 +6,25 @@
         <h4>Diameter</h4>
         <div class="form-group">
             <label for="debiet">Debiet (m&#179;/h)</label>
-            <input class="form-control" type="number" [(ngModel)]="model.debiet" name="debiet">
+            <input class="form-control" type="number" [(ngModel)]="model.debiet" name="debiet" (ngModelChange)="debietUpdated()">
         </div>
         <div class="form-group">
             <label for="vermogen">Vermogen (kW)</label>
-            <input class="form-control" type="number" [(ngModel)]="model.vermogen" name="vermogen">
+            <input class="form-control" type="number" [(ngModel)]="model.vermogen" name="vermogen" (ngModelChange)="vermogenUpdated()">
         </div>
         <div class="form-group">
             <label for="temperatuurVerschil">&#9651;T (&ordm;C)</label>
-            <input class="form-control" type="number" [(ngModel)]="model.temperatuurVerschil" name="temperatuurVerschil">
+            <input class="form-control" type="number" [(ngModel)]="model.temperatuurVerschil" name="temperatuurVerschil" (ngModelChange)="temperatuurVerschilUpdated()">
         </div>
         <div class="form-group">
             <label for="watersnelheid">Watersnelheid (m/s)</label>
-            <input class="form-control" type="number" [(ngModel)]="model.watersnelheid" name="watersnelheid">
+            <input class="form-control" type="number" [(ngModel)]="model.watersnelheid" name="watersnelheid" (ngModelChange)="watersnelheidUpdated()">
         </div>
         <div class="form-group">
             <label for="diameter">Diameter (mm)</label>
-            <input class="form-control" type="number" [(ngModel)]="model.diameter" name="diameter">
+            <select class="form-control" type="number" [(ngModel)]="model.diameter" name="diameter" convert-to-number (ngModelChange)="checkCircuitDiameters()">
+              <option *ngFor="let item of model.mogelijkeDiameters()" [ngValue]="item">DN{{item}}</option>
+            </select>
         </div>
         <h4>Circuits</h4>
         <div class="form-group ">
@@ -40,13 +42,17 @@
                     <div class="col-sm-6 ">
                         <div class='form-group'>
                             <label for="diameter">Diameter (mm)</label>
-                            <input class="form-control" type="number" [(ngModel)]="oi.diameter" name="diameter-{{j}} ">
+                            <select class="form-control" type="number" [(ngModel)]="oi.diameter" name="diameter-{{j}}" convert-to-number (ngModelChange)="diameterUpdated(j)">
+                              <option *ngFor="let item of model.mogelijkeDiametersMetFilter()" [ngValue]="item">DN{{item}}</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-sm-4 ">
                         <div class='form-group'>
-                            <label for="heeftSchroefdraad">Schroefdraad</label>
-                            <input class="form-control" type="checkbox" [(ngModel)]="oi.heeftScroefdraad" name="heeftSchroefdraad-{{j}}">
+                            <label for="aansluiting">Aansluiting</label>
+                            <select class="form-control" type="text" [(ngModel)]="oi.aansluiting" name="aansluiting-{{j}}" (ngModelChange)="drawPrimaireCollector()">
+                              <option *ngFor="let item of oi.mogelijkeCircuitAansluitingen()" [ngValue]="item">{{item}}</option>
+                            </select>
                         </div>
                     </div>
                 </div>
