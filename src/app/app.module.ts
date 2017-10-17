@@ -11,12 +11,14 @@ import { OffertesComponent } from './components/offertes/offertes.component';
 
 import { DataService } from './services/data.service';
 import { SecundaireCollectorOfferteComponent } from './components/secundaire-collector-offerte/secundaire-collector-offerte.component';
+import { ContactaanvragenComponent } from './components/contactaanvragen/contactaanvragen.component';
 
 const appRoutes: Routes = [
   { path:'', component:RealisatiesComponent},
   { path:'secundaire-collector-offerte', component:SecundaireCollectorOfferteComponent},
   { path:'offertes', component:OffertesComponent},
-  { path:'contact', component:ContactComponent}
+  { path:'contact', component:ContactComponent},
+  { path:'contactaanvragen', component:ContactaanvragenComponent}
 ]
 
 @NgModule({
@@ -25,7 +27,8 @@ const appRoutes: Routes = [
     ContactComponent,
     OffertesComponent,
     RealisatiesComponent,
-    SecundaireCollectorOfferteComponent
+    SecundaireCollectorOfferteComponent,
+    ContactaanvragenComponent
   ],
   imports: [
     BrowserModule,

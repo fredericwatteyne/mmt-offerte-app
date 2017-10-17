@@ -18,6 +18,11 @@ export class DataService {
       .map(res => res.json());
   }
 
+  getContactaanvragen() {
+    return this.http.get('/api/contactaanvragen')
+      .map(res => res.json());
+  }
+
   postContact(contact:string) {
     this.http.post('/api/contact', contact, {headers: this.headers})
     .subscribe(data => {
