@@ -1,0 +1,17 @@
+<h1>Contactaanvragen</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Naam</th>
+            <th>Bedrijf</th>
+            <th>Bericht</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let o of contactaanvragen">
+            <td>{{o.naam}}</td>
+            <td>{{o.bedrijf}}</td>
+            <td>{{o.bericht}}</td>
+        </tr>
+    </tbody>
+</table>
