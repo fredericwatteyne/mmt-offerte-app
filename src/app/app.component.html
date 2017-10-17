@@ -6,8 +6,14 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a routerLink="/secundaire-collector-offerte">Secundaire collector</a></li>
-                <li><a routerLink="/offertes">Offertes</a></li>
                 <li><a routerLink="/contact">Contact</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Overview
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a routerLink="/offertes">Offertes</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
