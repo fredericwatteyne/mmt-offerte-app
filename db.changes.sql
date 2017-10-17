@@ -1,17 +1,17 @@
-DROP TABLE secundaireCollectorOffertes;
+DROP TABLE secundaireCollectorOffertes;
 
 CREATE TABLE secundaireCollectorOffertes (
   ID SERIAL PRIMARY KEY,
+  creationTime timestamp,
+  omschrijving varchar,
   offerteId VARCHAR,
-  afstandTussenCircuits INTEGER
+  afstandTussenCircuits decimal,
+  debiet decimal,
+  vermogen decimal,
+  temperatuurVerschil decimal,
+  watersnelheid decimal,
+  diameter decimal
 );
-
-CREATE TABLE secundaireCollectorOffertes (offerteId, afstandTussenCircuits)
-  VALUES ('c01838f1-09d6-486e-a6bc-5dd41282c499', 20);
-
-CREATE TABLE secundaireCollectorOffertes (offerteId, afstandTussenCircuits)
-  VALUES ('18f27d68-9ec3-46af-a26e-ee41879c6d0d', 8);
-
 
 DROP TABLE contactaanvraag;
 

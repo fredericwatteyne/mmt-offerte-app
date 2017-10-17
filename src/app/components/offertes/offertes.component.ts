@@ -22,5 +22,7 @@ export class OffertesComponent implements OnInit {
 
 interface Offerte {
   offerteid: string,
-  afstandtussencircuits: number
+  creationTime: Date,
+  omschrijving: string,
+  onderdeel: string
 }
